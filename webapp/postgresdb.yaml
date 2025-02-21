@@ -17,10 +17,10 @@ spec:
         - name: postgres
           image: postgres:15
           env:
-            - name: POSTGRES_DB
+            - name: DB_NAME
               valueFrom:
-                secretKeyRef:
-                  name: db-secret
+                configMapKeyRef:
+                  name: db-config-map
                   key: DB_NAME
             - name: POSTGRES_USER
               valueFrom:
